@@ -4,15 +4,16 @@ body {
    font-size: 1.5rem;
 }
 
-p {
-   font-size: 16px;
+p, li {
+   font-size: 2rem !important;
+   color: grey;
 }
 
 /* Containing box for the todo list --------------------------------- */
 #list-box {
    background: white;
    padding: 1.5rem;
-   margin-top: 2rem;
+   margin: 2rem 0 1rem;
    box-shadow: 0 0 12px lightgrey;
 }
 
@@ -25,15 +26,14 @@ input {
 /* Formats the header area --------------------------------- */
 h1 {
    font-size: 7rem;
-   Color: darkorange;
+   Color: orangered;
    text-align: center;
    margin-bottom: 2rem;
 }
 
-.lead {
+#site-tagline {
    font-size: 2.5rem;
-   /* font-style: italic; */
-   color: grey;
+   color: lightgrey;
    margin-bottom: 3rem;
 }
 
@@ -50,7 +50,7 @@ li:nth-child(odd) {
 
 /* Styles the Delete a todo (X) icon  --------------------------------- */
 .del {
-   color: lightgrey;
+   color: lightsteelblue;
    font-size: 3rem;
    border-right: 1px dotted lightsteelblue;
    padding-right: 1.3rem !important;
@@ -63,26 +63,26 @@ li:nth-child(odd) {
 
 .line-through {
    text-decoration: line-through;
-   color: darkorange;
+   color: orangered;
 }
 
 /* Save and reset button styles --------------------------------- */
 
-#save-heading:hover,
 #reset-heading:hover {
    color: steelblue;
+   cursor: pointer;
 }
 
-#reset-heading,
-#save-heading {
+#reset-heading {
    font-size: 3rem;
    color: lightsteelblue;
    text-align: center;
+   cursor: pointer;
 }
 
-#reset-list,
-#save-list {
+#reset-list {
    margin-right: 2rem;
+   cursor: pointer;
 }
 
 /* Toggle speed */
@@ -90,33 +90,33 @@ li:nth-child(odd) {
 
 /* Form  --------------------------------- */
 form {
-   margin-bottom: 5rem;
+   margin-bottom: 3rem;
 }
 
 /* Footer --------------------------------- */
 
 footer {
-   background-color: lightsteelblue;
    height: 5rem;
    color: white;
    padding: 1.5rem;
-   position: absolute;
-   left: 0;
-   right: 0;
-   bottom: 0;
 }
 
 footer a,
 footer a:link,
 footer a:visited {
-   color: white;
+   color: lightsteelblue;
 }
 
 footer a:hover,
 footer a:active {
-   color: lavenderblush;
+   color: steelblue;
+   text-decoration: none;
 }
 
 .fa-spacer-right {
-   margin-right: 1rem;
+   margin-right: 1.2rem;
+}
+
+.fa-spacer-left {
+   margin-left: 1.2rem;
 }
