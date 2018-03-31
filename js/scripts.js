@@ -1,5 +1,11 @@
 // // Global variable for the todoArray variable
 var todoArray;
+var playSounds = true;
+var sound = new Howl({
+   src: ['sound/bubbles.mp3'],
+   autoplay: false,
+   volume: 0.2
+});
 
 // Toggle the line-through on "done" items
 $("ul").on("click", "li", function() {
@@ -8,7 +14,7 @@ $("ul").on("click", "li", function() {
 
 // Remove the item on clicking the red x
 $("ul").on("click", "span", function(event) {
-   $(this).parent().fadeOut(300, function() {
+   $(this).parent().slideUp(300, function() {
       var todoItem = $(this).text();
       // removes todoItem from todoArray
       todoArray.splice($.inArray(todoItem, todoArray), 1);
@@ -22,7 +28,7 @@ $("ul").on("click", "span", function(event) {
 
 // Remove all & reset the form
 $("#reset-div").on("click", "h3", function(event) {
-   $("li").fadeIn(700, function() {
+   $("li").slideUp(300, function() {
       $(this).remove();
    });
    localStorage.clear();
@@ -38,6 +44,7 @@ $("#todo-addition").keypress(function(event) {
 
       // add the input to the array
       todoArray.push(newTodo);
+      sound.play();
 
       localStorage.setItem('items', JSON.stringify(todoArray));
 
@@ -66,9 +73,37 @@ $("#todo-list").sortable({
 });
 
 $("#todo-list").disableSelection();
-
 $("ul, li").disableSelection();
 
+
+// Toggle sound Icons
+$("#sounds #sound-on").on("click", function() {
+   $(this).toggleClass("hidden");
+   $("#sounds #sound-off").toggleClass("hidden");
+   setVolume(false);
+});
+
+$("#sounds #sound-off").on("click", function() {
+   $(this).toggleClass("hidden");
+   $("#sounds #sound-on").toggleClass("hidden");
+   setVolume(true);
+});
+
+function setVolume(playSounds) {
+   if (playSounds) {
+      // Play sound when adding a todo
+      console.log("true");
+      sound._src ="sound/bubbles.mp3";
+      console.log(sound);
+   } else {
+      // Don't play sound when adding a todo
+      console.log("false");
+      sound._src ="sound/silent.mp3";
+      console.log(sound);
+   }
+}
+
+// Main function
 function main() {
    if (!localStorage.getItem('items')) {
       todoArray = [];

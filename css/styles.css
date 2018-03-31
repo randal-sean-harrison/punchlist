@@ -40,6 +40,19 @@ h1 {
    margin-bottom: 3rem;
 }
 
+#sounds h1 {
+   color: lightsteelblue;
+   font-size: 3rem;
+   text-align:right;
+   margin-right: 2rem;
+}
+
+#sounds h1:hover {
+   color: steelblue;
+   cursor: pointer;
+}
+
+
 /* Formats the list items  --------------------------------- */
 ul li {
    line-height: 1.8rem;
