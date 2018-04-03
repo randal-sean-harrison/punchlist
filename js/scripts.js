@@ -2,15 +2,21 @@
 var todoArray;
 var playSounds = true;
 var soundAdd = new Howl({
-   src: ['sound/bubbles.mp3'],
+   src: ['sound/add.mp3'],
    autoplay: false,
    volume: 0.3
 });
 
 var soundDelete = new Howl({
-   src: ['sound/veil.mp3'],
+   src: ['sound/delete.mp3'],
    autoplay: false,
    volume: 0.3
+});
+
+var soundRecycle = new Howl({
+   src: ['sound/recycle.mp3'],
+   autoplay: false,
+   volume: 0.2
 });
 
 
@@ -40,6 +46,8 @@ $("#reset-div").on("click", "h3", function(event) {
    $("li").slideUp(300, function() {
       $(this).remove();
    });
+   // Play a sound when deleting
+   soundRecycle.play();
    localStorage.clear();
    todoArray = [];
    event.stopPropagation();
