@@ -1,11 +1,18 @@
 // // Global variable for the todoArray variable
 var todoArray;
 var playSounds = true;
-var sound = new Howl({
+var soundAdd = new Howl({
    src: ['sound/bubbles.mp3'],
    autoplay: false,
-   volume: 0.2
+   volume: 0.3
 });
+
+var soundDelete = new Howl({
+   src: ['sound/veil.mp3'],
+   autoplay: false,
+   volume: 0.3
+});
+
 
 // Toggle the line-through on "done" items
 $("ul").on("click", "li", function() {
@@ -18,6 +25,8 @@ $("ul").on("click", "span", function(event) {
       var todoItem = $(this).text();
       // removes todoItem from todoArray
       todoArray.splice($.inArray(todoItem, todoArray), 1);
+      // Play a sound when deleting
+      soundDelete.play();
       // Writes to localstorage
       localStorage.setItem('items', JSON.stringify(todoArray));
       // Removes the item from the DOM
@@ -44,7 +53,7 @@ $("#todo-addition").keypress(function(event) {
 
       // add the input to the array
       todoArray.push(newTodo);
-      sound.play();
+      soundAdd.play();
 
       localStorage.setItem('items', JSON.stringify(todoArray));
 
