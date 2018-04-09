@@ -56,8 +56,9 @@ h1 {
 /* Formats the list items  --------------------------------- */
 ul li {
    line-height: 1.8rem;
-   padding: 1rem;
+   padding: 1.2rem;
    font-size: 1.8rem;
+   line-height: 1.5;
 }
 
 li:nth-child(odd) {
