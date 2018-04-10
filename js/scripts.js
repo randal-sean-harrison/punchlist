@@ -107,16 +107,20 @@ $("#sounds #sound-off").on("click", function() {
 });
 
 function setVolume(playSounds) {
-   if (playSounds) {
+   if (playSounds === true) {
       // Play sound when adding a todo
-      console.log("true");
-      sound._src ="sound/bubbles.mp3";
-      console.log(sound);
+      // console.log("true");
+      soundAdd._src ="sound/add.mp3";
+      soundDelete._src ="sound/delete.mp3";
+      soundRecycle._src ="sound/recycle.mp3";
+      // console.log(sound);
    } else {
       // Don't play sound when adding a todo
-      console.log("false");
-      sound._src ="sound/silent.mp3";
-      console.log(sound);
+      // console.log("false");
+      soundAdd._src = "sound/silent.mp3";
+      soundDelete._src = "sound/silent.mp3";
+      soundRecycle._src = "sound/silent.mp3";
+      // console.log(sound);
    }
 }
 
