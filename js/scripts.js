@@ -43,14 +43,20 @@ $("ul").on("click", "span", function(event) {
 
 // Remove all & reset the form
 $("#reset-div").on("click", "h3", function(event) {
-   $("li").slideUp(300, function() {
-      $(this).remove();
-   });
-   // Play a sound when deleting
-   soundRecycle.play();
-   localStorage.clear();
-   todoArray = [];
-   event.stopPropagation();
+
+   var confirmDelete = confirm("Delete all to-dos?");
+
+   if (confirmDelete) {
+      $("li").slideUp(300, function() {
+         $(this).remove();
+      });
+      // Play a sound when deleting
+      soundRecycle.play();
+      localStorage.clear();
+      todoArray = [];
+      event.stopPropagation();
+   }
+
 });
 
 // Add a todo to the list
