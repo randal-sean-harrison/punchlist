@@ -1,3 +1,28 @@
+$("#dialog-confirm").dialog({
+   autoOpen: false,
+   resizable: false,
+   height: "auto",
+   width: 400,
+   modal: true,
+   buttons: {
+      "Cancel": function() {
+         $(this).dialog("close");
+      },
+      "Clear All To-dos": function() {
+         $("li").slideUp(300, function() {
+            $(this).remove();
+         });
+         // Play a sound when deleting
+         soundRecycle.play();
+         localStorage.clear();
+         todoArray = [];
+         event.stopPropagation();
+         $(this).dialog("close");
+      }
+   }
+});
+
+
 // // Global variable for the todoArray variable
 var todoArray;
 var playSounds = true;
@@ -44,18 +69,13 @@ $("ul").on("click", "span", function(event) {
 // Remove all & reset the form
 $("#reset-div").on("click", "h3", function(event) {
 
-   var confirmDelete = confirm("Delete all to-dos?");
+   $("#dialog-confirm").dialog("open");
 
-   if (confirmDelete) {
-      $("li").slideUp(300, function() {
-         $(this).remove();
-      });
-      // Play a sound when deleting
-      soundRecycle.play();
-      localStorage.clear();
-      todoArray = [];
-      event.stopPropagation();
-   }
+   // remove the close button on the modal
+   $(".ui-dialog-titlebar-close").remove();
+   $(".ui-icon-alert").remove();
+   $(".ui-dialog-buttonset button:first-of-type").addClass("btn btn-default");
+   $(".ui-dialog-buttonset button:last-of-type").addClass("btn btn-primary");
 
 });
 
@@ -116,9 +136,9 @@ function setVolume(playSounds) {
    if (playSounds === true) {
       // Play sound when adding a todo
       // console.log("true");
-      soundAdd._src ="sound/add.mp3";
-      soundDelete._src ="sound/delete.mp3";
-      soundRecycle._src ="sound/recycle.mp3";
+      soundAdd._src = "sound/add.mp3";
+      soundDelete._src = "sound/delete.mp3";
+      soundRecycle._src = "sound/recycle.mp3";
       // console.log(sound);
    } else {
       // Don't play sound when adding a todo
