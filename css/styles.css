@@ -102,6 +102,30 @@ li:nth-child(odd) {
    cursor: pointer;
 }
 
+.btn-group {
+   margin-top: 2rem;
+}
+
+.btn-group button {
+   font-size: 2.4rem !important;
+}
+
+.btn-active {
+   background: orangered;
+   color: white;
+}
+
+.btn-default {
+   color: grey;
+}
+.btn-active:link,
+.btn-active:visited,
+.btn-active:hover,
+.btn-active:active {
+background-color: tomato;
+color: white !important;
+}
+
 /* Toggle speed */
 .fast .toggle-group { transition: left 0.1s; -webkit-transition: left 0.1s; }
 

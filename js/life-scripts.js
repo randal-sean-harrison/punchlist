@@ -1,3 +1,8 @@
+/* ------------------------------------------- */
+/* index.html >> styles.css >> work-scripts.js */
+/* life.html >> styles.css >> life-scripts.js  */
+/* ------------------------------------------- */
+
 $("#dialog-confirm").dialog({
    autoOpen: false,
    resizable: false,
@@ -14,14 +19,19 @@ $("#dialog-confirm").dialog({
          });
          // Play a sound when deleting
          soundRecycle.play();
-         localStorage.clear();
+         localStorage.removeItem("life-items");
          todoArray = [];
          event.stopPropagation();
-         $(this).dialog("close");
+         $("#dialog-confirm").dialog("close");
       }
    }
 });
 
+
+// Top page navigation
+$("#btn-work").on("click", function(){
+   location.href = "index.html";
+});
 
 // // Global variable for the todoArray variable
 var todoArray;
@@ -44,8 +54,7 @@ var soundRecycle = new Howl({
    volume: 0.2
 });
 
-
-// Toggle the line-through on "done" items
+// Toggle the line-through on "done" life-items
 $("ul").on("click", "li", function() {
    $(this).toggleClass("line-through");
 });
@@ -59,7 +68,7 @@ $("ul").on("click", "span", function(event) {
       // Play a sound when deleting
       soundDelete.play();
       // Writes to localstorage
-      localStorage.setItem('items', JSON.stringify(todoArray));
+      localStorage.setItem('life-items', JSON.stringify(todoArray));
       // Removes the item from the DOM
       $(this).remove();
    });
@@ -89,7 +98,7 @@ $("#todo-addition").keypress(function(event) {
       todoArray.push(newTodo);
       soundAdd.play();
 
-      localStorage.setItem('items', JSON.stringify(todoArray));
+      localStorage.setItem('life-items', JSON.stringify(todoArray));
 
       $(this).val("");
       $("ul").prepend("<li><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span>" + newTodo + "</li>");
@@ -111,7 +120,7 @@ $("#todo-list").sortable({
    //   }
    //
    //   todoArray = $('#todo-list li').val();
-   //   localStorage.setItem('items', JSON.stringify(todoArray));
+   //   localStorage.setItem('life-items', JSON.stringify(todoArray));
    // }
 });
 
@@ -152,10 +161,10 @@ function setVolume(playSounds) {
 
 // Main function
 function main() {
-   if (!localStorage.getItem('items')) {
+   if (!localStorage.getItem('life-items')) {
       todoArray = [];
    } else {
-      todoArray = JSON.parse(localStorage.getItem('items'));
+      todoArray = JSON.parse(localStorage.getItem('life-items'));
 
       var arrayLength = todoArray.length;
 
