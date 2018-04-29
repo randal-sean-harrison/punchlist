@@ -29,7 +29,7 @@ $("#dialog-confirm").dialog({
 
 
 // Top page navigation
-$("#btn-work").on("click", function(){
+$("#btn-work").on("click", function() {
    location.href = "index.html";
 });
 
@@ -76,7 +76,7 @@ $("ul").on("click", "span", function(event) {
 });
 
 // Remove all & reset the form
-$("#reset-div").on("click", "h3", function(event) {
+$("#reset-div").on("click", "#reset-list", function(event) {
 
    $("#dialog-confirm").dialog("open");
 
@@ -85,6 +85,27 @@ $("#reset-div").on("click", "h3", function(event) {
    $(".ui-icon-alert").remove();
    $(".ui-dialog-buttonset button:first-of-type").addClass("btn btn-default");
    $(".ui-dialog-buttonset button:last-of-type").addClass("btn btn-primary");
+
+});
+
+// Email the life list
+$("#reset-div").on("click", "#email-list", function(event) {
+
+   emailList = JSON.parse(localStorage.getItem('life-items'));
+
+   // reverse the list
+   emailList.reverse();
+   var newString = "";
+
+   for (let i=0; i < emailList.length; i++){
+
+      // adds the linebreak and carriage return to the entries to be emailed
+      newString += emailList[i] + "%0D%0A";
+   }
+
+   var link = 'mailto:email@example.org?subject=To-do list (LIFE)' + '&body=' + newString;
+
+   window.location.href = link;
 
 });
 
@@ -173,6 +194,8 @@ function main() {
       }
    }
 }
+
+$('[data-toggle="tooltip"]').tooltip();
 
 // Main function
 main();

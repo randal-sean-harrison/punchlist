@@ -28,7 +28,7 @@ $("#dialog-confirm").dialog({
 });
 
 // Top page navigation
-$("#btn-life").on("click", function(){
+$("#btn-life").on("click", function() {
    location.href = "life.html";
 });
 
@@ -76,7 +76,7 @@ $("ul").on("click", "span", function(event) {
 });
 
 // Remove all & reset the form
-$("#reset-div").on("click", "h3", function(event) {
+$("#reset-div").on("click", "#reset-list", function(event) {
 
    $("#dialog-confirm").dialog("open");
 
@@ -87,6 +87,28 @@ $("#reset-div").on("click", "h3", function(event) {
    $(".ui-dialog-buttonset button:last-of-type").addClass("btn btn-primary");
 
 });
+
+// Email the life list
+$("#reset-div").on("click", "#email-list", function(event) {
+
+   emailList = JSON.parse(localStorage.getItem('work-items'));
+
+   // reverse the list
+   emailList.reverse();
+   var newString = "";
+
+   for (let i = 0; i < emailList.length; i++) {
+
+      // adds the linebreak and carriage return to the entries to be emailed
+      newString += emailList[i] + "%0D%0A";
+   }
+
+   var link = 'mailto:email@example.org?subject=To-do list (WORK)' + '&body=' + newString;
+
+   window.location.href = link;
+
+});
+
 
 // Add a todo to the list
 $("#todo-addition").keypress(function(event) {
@@ -173,6 +195,8 @@ function main() {
       }
    }
 }
+
+$('[data-toggle="tooltip"]').tooltip();
 
 // Main function
 main();
