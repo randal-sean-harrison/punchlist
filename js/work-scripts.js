@@ -55,9 +55,9 @@ var soundRecycle = new Howl({
 
 
 // Toggle the line-through on "done" work-items
-$("ul").on("click", "li", function() {
-   $(this).toggleClass("line-through");
-});
+// $("ul").on("click", "li", function() {
+//    $(this).toggleClass("line-through");
+// });
 
 // Remove the item on clicking the red x
 $("ul").on("click", "span", function(event) {
