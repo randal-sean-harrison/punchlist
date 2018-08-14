@@ -59,7 +59,7 @@ var soundRecycle = new Howl({
 //    $(this).toggleClass("line-through");
 // });
 
-// Remove the item on clicking the red x
+// Remove the item on clicking the x
 $("ul").on("click", "span", function(event) {
    $(this).parent().slideUp(300, function() {
       var todoItem = $(this).text();
