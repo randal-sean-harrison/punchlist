@@ -1,8 +1,8 @@
 /* body --------------------------------- */
-
 body {
-   background-color: aliceblue;
    font-size: 1.5rem;
+   background-image: url("../img/bg-pattern3.png");
+   background-repeat: repeat;
 }
 
 p, li {
@@ -10,8 +10,11 @@ p, li {
    color: grey;
 }
 
-/* Containing box for the todo list --------------------------------- */
+.gray {
+   color: gray;
+}
 
+/* Containing box for the todo list --------------------------------- */
 #list-box {
    background: white;
    padding: 1.5rem;
@@ -20,7 +23,6 @@ p, li {
 }
 
 /* Formats the input field */
-
 input {
    font-size: 1.8rem !important;
    padding: 2.5rem !important;
@@ -31,7 +33,6 @@ input {
 }
 
 /* Formats the header area --------------------------------- */
-
 h1 {
    font-size: 7rem;
    color: orangered;
@@ -46,7 +47,7 @@ h1 {
 }
 
 #sounds h1 {
-   color: lightsteelblue;
+   color: orangered;
    font-size: 3rem;
    text-align: right;
    margin-right: 2rem;
@@ -58,7 +59,6 @@ h1 {
 }
 
 /* Formats the list items  --------------------------------- */
-
 ul li {
    line-height: 1.8rem;
    padding: 1.2rem;
@@ -71,7 +71,6 @@ li:nth-child(odd) {
 }
 
 /* Styles the Delete a todo (X) icon  --------------------------------- */
-
 .del {
    color: lightsteelblue;
    font-size: 3rem;
@@ -90,7 +89,6 @@ li:nth-child(odd) {
 }
 
 /* Save and reset button styles --------------------------------- */
-
 #reset-list:hover, #email-list:hover, #save-list:hover {
    color: steelblue;
    cursor: pointer;
@@ -98,7 +96,7 @@ li:nth-child(odd) {
 
 #reset-heading {
    font-size: 3rem;
-   color: lightsteelblue;
+   color: orangered;
    text-align: right;
    cursor: pointer;
    margin-right: 1rem;
@@ -132,7 +130,6 @@ li:nth-child(odd) {
 }
 
 /* style the tooltip background-color */
-
 .tooltip.bottom .tooltip-inner {
    background-color: steelblue;
    font-size: 1.4rem;
@@ -145,20 +142,17 @@ li:nth-child(odd) {
 }
 
 /* Toggle speed */
-
 .fast .toggle-group {
    transition: left 0.1s;
    -webkit-transition: left 0.1s;
 }
 
 /* Form  --------------------------------- */
-
 form {
    margin-bottom: 3rem;
 }
 
 /* Footer --------------------------------- */
-
 footer {
    height: 5rem;
    color: white;
@@ -166,7 +160,7 @@ footer {
 }
 
 footer a, footer a:link, footer a:visited {
-   color: lightsteelblue;
+   color: orangered;
 }
 
 footer a:hover, footer a:active {
