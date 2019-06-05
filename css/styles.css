@@ -22,7 +22,7 @@ p, li {
 #list-box {
    background: white;
    padding: 1.5rem;
-   margin: 2rem 0 1rem;
+   margin: 0rem 0 1rem;
    box-shadow: 0 0 12px lightgrey;
 }
 
@@ -70,8 +70,9 @@ ul li {
    line-height: 1.5;
 }
 
-li:nth-child(odd) {
-   background: aliceblue;
+li { /*:nth-child(odd)*/
+   background: #f6f7fb;
+   margin-bottom: 1.7rem;
 }
 
 /* Styles the Delete a todo (X) icon  --------------------------------- */
@@ -117,20 +118,33 @@ li:nth-child(odd) {
 
 .btn-group button {
    font-size: 2.4rem !important;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+   border-top-left-radius: 3;
+   border-top-right-radius: 3;
+
 }
 
 .btn-active {
-   background: orangered;
-   color: white;
-}
-
-.btn-default {
+   background: white;
    color: grey;
 }
 
+.btn-default {
+   color: orangered;
+   background-color: #ececec;
+   border: none;
+}
+
+.btn-default:hover {
+   color: orangered;
+   background-color: #ececec;
+   border: none;
+}
+
 .btn-active:link, .btn-active:visited, .btn-active:hover, .btn-active:active {
-   background-color: tomato;
-   color: white !important;
+   background-color: white;
+   /* color: tomato !important; */
 }
 
 /* style the tooltip background-color */
@@ -178,4 +192,44 @@ footer a:hover, footer a:active {
 
 .fa-spacer-left {
    margin-left: 1.2rem;
+}
+
+.push-down-3 {
+   margin-top: 5rem !important;
+}
+
+input#todo-addition {
+   padding: 4rem 0 4rem 1rem !important;
+   font-size: 25px !important;
+   background-color: #f6f7fb !important;
+   border: none !important;
+   box-shadow: none !important;
+   color: gray !important;
+}
+
+#todo-addition::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: lightgrey;
+}
+#todo-addition::-moz-placeholder { /* Firefox 19+ */
+  color: lightgrey;
+}
+#todo-addition:-ms-input-placeholder { /* IE 10+ */
+  color: lightgrey;
+}
+#todo-addition:-moz-placeholder { /* Firefox 18- */
+  color: lightgrey;
+}
+
+#sizing-addon1 {
+   background: aliceblue !important;
+   border: none;
+   box-shadow: none;
+}
+
+#sizing-addon1 i {
+   color: orangered !important;
+}
+
+.lightgrey {
+   color: silver;
 }
