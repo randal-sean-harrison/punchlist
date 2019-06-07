@@ -125,6 +125,7 @@ h3 i {
 .btn-active {
    background: white;
    color: grey;
+   cursor: default;
 }
 
 .btn-default {
@@ -141,7 +142,8 @@ h3 i {
 
 .btn-active:link, .btn-active:visited, .btn-active:hover, .btn-active:active {
    background-color: white;
-   /* color: tomato !important; */
+   color: gray;
+
 }
 
 /* style the tooltip background-color */
