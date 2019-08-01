@@ -131,19 +131,10 @@ $("#todo-addition").keypress(function(event) {
 
 // Draggable and Sortable lists
 $("#todo-list").sortable({
-   // connectWith : ".sortable",
-   // update : function(event,ui){
-   //
-   //   todoArray = [];
-   //   var listLength = todos.length;
-   //
-   //   for (var i = 0; i < listLength; i++) {
-   //      todoArray = todoArray + todos[i];
-   //   }
-   //
-   //   todoArray = $('#todo-list li').val();
-   //   localStorage.setItem('work-items', JSON.stringify(todoArray));
-   // }
+   axis: 'y',
+   placeholder: "placeholder"
+
+
 });
 
 $("#todo-list").disableSelection();

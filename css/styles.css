@@ -1,7 +1,8 @@
 /* body --------------------------------- */
 body {
    font-size: 1.5rem;
-   background: linear-gradient(rgba(169, 169, 169, 0.4), rgba(169, 169, 169, 0.4)) center top / cover, url("../img/bg-pattern3.png");
+   /* background: linear-gradient(rgba(169, 169, 169, 0.4), rgba(169, 169, 169, 0.4)) center top / cover, url("../img/bg-pattern3.png"); */
+   background: linear-gradient(rgba(135, 186, 208, 0.07), rgba(135, 186, 208, 0.07)) center top / cover, url("../img/bg-pattern3.png");
    background-repeat: repeat;
 }
 
@@ -59,6 +60,14 @@ h1 {
 #sounds h1:hover {
    color: tomato;
    cursor: pointer;
+}
+
+/* Sorting function -----------------------------------------*/
+
+.placeholder {
+   height: 70px;
+   background: lightgray;
+   opacity: .3;
 }
 
 /* Formats the list items  --------------------------------- */
