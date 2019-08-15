@@ -37,13 +37,13 @@ $("#btn-work").on("click", function() {
 var todoArray;
 var playSounds = true;
 var soundAdd = new Howl({
-   src: ['sound/add.mp3'],
+   src: ['sound/delete.mp3'],
    autoplay: false,
    volume: 0.3
 });
 
 var soundDelete = new Howl({
-   src: ['sound/delete.mp3'],
+   src: ['sound/add.mp3'],
    autoplay: false,
    volume: 0.3
 });
