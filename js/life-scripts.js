@@ -60,7 +60,7 @@ var soundRecycle = new Howl({
 // });
 
 // Remove the item on clicking the red x
-$("ul").on("click", "span", function(event) {
+$("ul").on("click", "span.del", function(event) {
    $(this).parent().slideUp(300, function() {
       var todoItem = $(this).text();
       // removes todoItem from todoArray
@@ -73,6 +73,21 @@ $("ul").on("click", "span", function(event) {
       $(this).remove();
    });
    event.stopPropagation();
+});
+
+
+$("ul").on("click", "span.edit-this", function(event) {
+    var currentTodo = $(this).parent().text();
+    var getEdit = prompt("Edit this to-do...", currentTodo);
+
+    //break out of the function early if cancel or empty
+    if (getEdit === null) {
+            return;
+        }
+
+    // Write the value from the prompt to the list item Todo
+    $(this).next().html(getEdit);
+
 });
 
 // Remove all & reset the form
@@ -103,7 +118,7 @@ $("#reset-div").on("click", "#email-list", function(event) {
       newString += emailList[i] + "%0D%0A";
    }
 
-   var link = 'mailto:email@example.org?subject=To-do list (LIFE)' + '&body=' + newString;
+   var link = 'mailto:rharriso@nd.edu?subject=To-do list (LIFE)' + '&body=' + newString;
 
    window.location.href = link;
 
@@ -122,7 +137,7 @@ $("#todo-addition").keypress(function(event) {
       localStorage.setItem('life-items', JSON.stringify(todoArray));
 
       $(this).val("");
-      $("ul").prepend("<li><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span>" + newTodo + "</li>");
+      $("ul").prepend("<li><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fa fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + newTodo + "</span>" + "</li>");
 
       event.preventDefault();
    }
@@ -190,7 +205,7 @@ function main() {
       var arrayLength = todoArray.length;
 
       for (var i = arrayLength - 1; i >= 0; i--) {
-         $('#todo-list').append("<li class='sortable'><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span>" + todoArray[i] + "</li>");
+         $('#todo-list').append("<li class='sortable'><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fa fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + todoArray[i] + "</span>" + "</li>");
       }
    }
 }

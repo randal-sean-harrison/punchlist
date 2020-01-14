@@ -70,8 +70,8 @@
                   </div>
 
                   <div class="col-xs-6 col-md-8" id="menu-right">
-                     <h3 id="reset-heading" class="text-right"><i data-toggle="tooltip" data-placement="left" title="Email this list" id="email-list" class="fa fa-paper-plane-o"></i> &nbsp;&nbsp; <i data-toggle="tooltip" data-placement="right"
-                           title="Erase all" class="fa fa-refresh" id="reset-list" aria-hidden="true"></i></h3>
+                    <h3 id="reset-heading" class="text-right"><i data-toggle="tooltip" data-placement="bottom" title="Save this list" id="save-the-list" class="fa fa-floppy-o"></i> &nbsp;&nbsp;&nbsp;&nbsp;<i data-toggle="tooltip" data-placement="bottom"
+                        title="Email this list" id="email-list" class="fa fa-paper-plane-o"></i> &nbsp;&nbsp;&nbsp;&nbsp; <i data-toggle="tooltip" data-placement="bottom" title="Clear all to-dos" class="fa fa-refresh" id="reset-list" aria-hidden="true"></i></h3>
                   </div>
                </div>
             </div>
@@ -142,6 +142,27 @@
 
    <!-- Local js include -->
    <script src="js/life-scripts.js"></script>
+
+   <script>
+     $(document).ready(function() {
+
+
+       $("#save-the-list").on("click", function() {
+
+         newTodoArray = [];
+
+         $("#todo-list li").each(function() {
+           newTodoArray.push( $(this).text() );
+       });
+
+         todoArray = newTodoArray.reverse();
+
+         localStorage.setItem('life-items', JSON.stringify(todoArray));
+       });
+
+
+     });
+   </script>
 
 </body>
 
