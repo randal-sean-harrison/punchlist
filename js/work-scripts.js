@@ -172,8 +172,8 @@ function setVolume(playSounds) {
    if (playSounds === true) {
       // Play sound when adding a todo
       // console.log("true");
-      soundAdd._src = "sound/add.mp3";
-      soundDelete._src = "sound/delete.mp3";
+      soundAdd._src = "sound/delete.mp3";
+      soundDelete._src = "sound/add.mp3";
       soundRecycle._src = "sound/recycle.mp3";
       // console.log(sound);
    } else {

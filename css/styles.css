@@ -2,8 +2,10 @@
 body {
   font-size: 1.5rem;
   /* background: linear-gradient(rgba(169, 169, 169, 0.4), rgba(169, 169, 169, 0.4)) center top / cover, url("../img/bg-pattern3.png"); */
-  background: linear-gradient(rgba(135, 186, 208, 0.07), rgba(135, 186, 208, 0.07)) center top / cover, url("../img/bg-pattern3.png");
+  /* background: linear-gradient(rgba(135, 186, 208, 0.07), rgba(135, 186, 208, 0.07)) center top / cover, url("../img/bg-pattern3.png"); */
   background-repeat: repeat;
+  /* background: #D9E7F3; */
+  background: mistyrose;
 }
 
 p, li {
@@ -16,7 +18,7 @@ p, li {
 }
 
 #main-tainer {
-  margin-top: 8rem;
+  margin-top: 5rem;
 }
 
 /* Containing box for the todo list --------------------------------- */
@@ -163,7 +165,7 @@ h3 i {
 
 .btn-default {
   color: orangered;
-  background-color: #ececec;
+  background-color: #eceeee;
   border: none;
 }
 
@@ -198,7 +200,7 @@ h3 i {
 
 /* Form  --------------------------------- */
 form {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 /* Footer --------------------------------- */
@@ -225,12 +227,16 @@ footer a:hover, footer a:active {
   margin-left: 1.2rem;
 }
 
+.push-down-2 {
+  margin-top: 3rem !important;
+}
+
 .push-down-3 {
   margin-top: 5rem !important;
 }
 
 input#todo-addition {
-  padding: 4rem 0 4rem 1rem !important;
+  padding: 5.5rem 0 5.5rem 1.75rem !important;
   font-size: 25px !important;
   background-color: #f6f7fb !important;
   border: none !important;
@@ -264,7 +270,7 @@ input#todo-addition {
 
 #sizing-addon1 {
   background: #f6f7fb !important;
-  border: none;
+  border: none !important;
   box-shadow: none;
 }
 
