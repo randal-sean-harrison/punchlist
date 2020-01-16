@@ -138,6 +138,11 @@ li {
   margin-bottom: 0px;
 }
 
+.ui-widget.ui-widget-content {
+  position: relative !important;
+  z-index: 1000000000 !important;
+}
+
 /* Save and reset button styles --------------------------------- */
 #reset-list:hover, #email-list:hover, #save-list:hover {
   color: orangered;
