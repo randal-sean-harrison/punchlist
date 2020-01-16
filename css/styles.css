@@ -194,15 +194,15 @@ h3 i {
 }
 
 /* style the tooltip background-color */
-.tooltip.bottom .tooltip-inner {
-  background-color: gray;
-  font-size: 1.4rem;
+.tooltip .tooltip-inner {
+  background-color: lightslategray;
+  font-size: 1.8rem;
   margin-top: .5rem;
+  padding: .5rem;
 }
 
-.tooltip.bottom .tooltip-arrow {
-  border-bottom-color: gray;
-  margin-top: .5rem;
+.tooltip .tooltip-arrow {
+  display: none;
 }
 
 /* Toggle speed */

@@ -76,6 +76,7 @@ $("ul").on("click", "span.del", function(event) {
 });
 
 
+// Edit the todo
 $("ul").on("click", "span.edit-this", function(event) {
     var currentTodo = $(this).parent().text();
     var getEdit = prompt("Edit this to-do...", currentTodo);
@@ -89,7 +90,6 @@ $("ul").on("click", "span.edit-this", function(event) {
     $(this).next().html(getEdit);
 
 });
-
 
 // Remove all & reset the form
 $("#reset-div").on("click", "#reset-list", function(event) {
@@ -143,13 +143,6 @@ $("#todo-addition").keypress(function(event) {
 
       event.preventDefault();
    }
-});
-
-// Draggable and Sortable lists
-$("#todo-list").sortable({
-   axis: 'y',
-   placeholder: "placeholder"
-
 });
 
 $("#todo-list").disableSelection();
