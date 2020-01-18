@@ -106,6 +106,8 @@ $("#reset-div").on("click", "#reset-list", function(event) {
 // Email the life list
 $("#reset-div").on("click", "#email-list", function(event) {
 
+  var checkmark = "%E2%9C%94  ";
+
    emailList = JSON.parse(localStorage.getItem('life-items'));
 
    // reverse the list
@@ -115,7 +117,7 @@ $("#reset-div").on("click", "#email-list", function(event) {
    for (let i=0; i < emailList.length; i++){
 
       // adds the linebreak and carriage return to the entries to be emailed
-      newString += emailList[i] + "%0D%0A";
+      newString += checkmark + emailList[i] + "%0D%0A";
    }
 
    var link = 'mailto:rharriso@nd.edu?subject=To-do list (LIFE)' + '&body=' + newString;
