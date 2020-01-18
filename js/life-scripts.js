@@ -98,10 +98,10 @@ $("ul").on("click", "span.edit-this", function(event) {
   todoArray = newTodoArray.reverse();
 
 
-  if (window.location.href.indexOf("index") > -1) {
-    localStorage.setItem('work-items', JSON.stringify(todoArray));
-  } else if (window.location.href.indexOf("life") > -1) {
+  if (window.location.href.indexOf("life") > -1) {
     localStorage.setItem('life-items', JSON.stringify(todoArray));
+  } else {
+    localStorage.setItem('work-items', JSON.stringify(todoArray));
   }
 
 });
