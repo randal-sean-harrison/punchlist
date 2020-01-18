@@ -29,6 +29,12 @@ p, li {
     z-index: 1 !important;
 }
 
+/* Not currently using this style */
+/* .line-through {
+  text-decoration: line-through;
+  color: silver;
+} */
+
 #list-box {
   position: relative;
   background: white;

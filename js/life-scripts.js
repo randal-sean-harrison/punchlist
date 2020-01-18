@@ -75,7 +75,7 @@ $("ul").on("click", "span.del", function(event) {
    event.stopPropagation();
 });
 
-
+// Edit the todo
 $("ul").on("click", "span.edit-this", function(event) {
     var currentTodo = $(this).parent().text();
     var getEdit = prompt("Edit this to-do...", currentTodo);
@@ -87,6 +87,22 @@ $("ul").on("click", "span.edit-this", function(event) {
 
     // Write the value from the prompt to the list item Todo
     $(this).next().html(getEdit);
+
+    // write the changes to the localStorage
+    var newTodoArray = [];
+
+    $("#todo-list li").each(function() {
+      newTodoArray.push( $(this).text() );
+    });
+
+    todoArray = newTodoArray.reverse();
+
+
+    if (window.location.href.indexOf("index") > -1) {
+        localStorage.setItem('work-items', JSON.stringify(todoArray));
+    } else if (window.location.href.indexOf("life") > -1) {
+        localStorage.setItem('life-items', JSON.stringify(todoArray));
+        }
 
 });
 
