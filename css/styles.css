@@ -1,6 +1,7 @@
 /* body --------------------------------- */
 body {
   font-size: 1.5rem;
+  font-family: "Montserrat", Arial, sans-serif;
   /* background: linear-gradient(rgba(169, 169, 169, 0.4), rgba(169, 169, 169, 0.4)) center top / cover, url("../img/bg-pattern3.png"); */
   /* background: linear-gradient(rgba(135, 186, 208, 0.07), rgba(135, 186, 208, 0.07)) center top / cover, url("../img/bg-pattern3.png"); */
   /* background-repeat: repeat; */
@@ -10,11 +11,11 @@ body {
 
 p, li {
   font-size: 2rem !important;
-  color: grey;
+  color: slategray;
 }
 
 .gray {
-  color: gray;
+  color: slategray;
 }
 
 #main-tainer {
@@ -57,17 +58,49 @@ input {
   color: orangered;
 }
 
+.slategray {
+  color: slategray;
+}
+
+/* Back-to-top button */
+#topper {
+  display: none;
+  position: fixed;
+  bottom: 35%;
+  right: 0;
+  z-index: 100;
+  border: none;
+  outline: none;
+  background-color: orangered !important;
+  color: white;
+  padding: 8px 4px 10px 4px;
+  border-radius: 2px 0 0 2px;
+  font-size: 1.75rem;
+  cursor: pointer !important;
+}
+
+#topper:hover {
+  background-color: #474e5f;
+}
+
+
 /* Formats the header area --------------------------------- */
 h1 {
   font-size: 7rem;
-  color: gray;
+  color: slategray;
   text-align: center;
   margin-bottom: 2rem;
+  font-weight: 600 !important
+}
+
+#site-title,
+#site-tagline {
+  margin-left: -3rem;
 }
 
 #site-tagline {
   font-size: 2.5rem;
-  color: gray;
+  color: slategray;
   margin-bottom: 3rem;
 }
 
@@ -109,7 +142,7 @@ li {
 .del {
   color: orangered;
   font-size: 3rem;
-  border-right: 1px dotted gray;
+  border-right: 1px dotted slategray;
   padding-right: 1.3rem !important;
   margin-right: 1.5rem;
   opacity: .7
@@ -184,7 +217,7 @@ h3 i {
 
 .btn-active {
   background: white;
-  color: grey;
+  color: slategray;
   cursor: default;
 }
 
@@ -202,7 +235,7 @@ h3 i {
 
 .btn-active:link, .btn-active:visited, .btn-active:hover, .btn-active:active {
   background-color: white;
-  color: gray;
+  color: slategray !important;
 }
 
 /* style the tooltip background-color */
@@ -300,5 +333,5 @@ input#todo-addition {
 }
 
 #sizing-addon1 i {
-  color: gray !important;
+  color: slategray !important;
 }
