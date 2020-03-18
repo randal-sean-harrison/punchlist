@@ -122,6 +122,8 @@ $("#reset-div").on("click", "#reset-list", function(event) {
 // Email the life list
 $("#reset-div").on("click", "#email-list", function(event) {
 
+  var emailRecipient = prompt("Enter email address: ");
+
   var checkmark = "%E2%9C%94  ";
 
   emailList = JSON.parse(localStorage.getItem('life-items'));
@@ -136,7 +138,7 @@ $("#reset-div").on("click", "#email-list", function(event) {
     newString += checkmark + emailList[i] + "%0D%0A";
   }
 
-  var link = 'mailto:rharriso@nd.edu?subject=To-do list (LIFE)' + '&body=' + newString;
+  var link = 'mailto:' + emailRecipient + '?subject=To-do list (LIFE)' + '&body=' + newString;
 
   window.location.href = link;
 
@@ -215,7 +217,7 @@ function main() {
   window.onscroll = function() {
     scrollFunction()
   };
-  
+
   function scrollFunction() {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
       document.getElementById("topper").style.display = "block";

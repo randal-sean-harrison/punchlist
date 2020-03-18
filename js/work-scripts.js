@@ -122,6 +122,8 @@ $("#reset-div").on("click", "#reset-list", function(event) {
 // Email the life list
 $("#reset-div").on("click", "#email-list", function(event) {
 
+  var emailRecipient = prompt("Enter email address: ");
+
   var checkmark = "%E2%9C%94  ";
 
   emailList = JSON.parse(localStorage.getItem('work-items'));
@@ -136,7 +138,7 @@ $("#reset-div").on("click", "#email-list", function(event) {
     newString += checkmark + emailList[i] + "%0D%0A";
   }
 
-  var link = 'mailto:rharriso@nd.edu?subject=To-do list (WORK)' + '&body=' + newString;
+  var link = 'mailto:' + emailRecipient + '?subject=To-do list (WORK)' + '&body=' + newString;
 
   window.location.href = link;
 
@@ -213,29 +215,29 @@ function main() {
 
 
 // // Scroll to top button — When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function() {
-    scrollFunction()
-  };
+window.onscroll = function() {
+  scrollFunction()
+};
 
-  function scrollFunction() {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-      document.getElementById("topper").style.display = "block";
-    } else {
-      document.getElementById("topper").style.display = "none";
-    }
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementById("topper").style.display = "block";
+  } else {
+    document.getElementById("topper").style.display = "none";
   }
+}
 
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 
-  $("#topper").on("click", function() {
-    $("html").animate({
-      scrollTop: 0
-    }, 500, "easeOutQuad");
-  });
+$("#topper").on("click", function() {
+  $("html").animate({
+    scrollTop: 0
+  }, 500, "easeOutQuad");
+});
 
 // In-page sccroll-to links
 $("a.scroll-link").click(function(event) {
