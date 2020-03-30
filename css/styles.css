@@ -1,11 +1,12 @@
 /* body --------------------------------- */
 body {
   font-size: 1.5rem;
-  font-family: "Montserrat", Arial, sans-serif;
+  /* font-family: "Montserrat", Arial, sans-serif; */
   /* background: linear-gradient(rgba(169, 169, 169, 0.4), rgba(169, 169, 169, 0.4)) center top / cover, url("../img/bg-pattern3.png"); */
   /* background: linear-gradient(rgba(135, 186, 208, 0.07), rgba(135, 186, 208, 0.07)) center top / cover, url("../img/bg-pattern3.png"); */
   /* background-repeat: repeat; */
   /* background: #D9E7F3; */
+  font-family: proxima-nova, 'Open Sans', sans-serif;
   background: aliceblue;
 }
 
