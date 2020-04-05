@@ -8,11 +8,18 @@ body {
   /* background: #D9E7F3; */
   font-family: proxima-nova, 'Open Sans', sans-serif;
   background: aliceblue;
+  padding-bottom: 100px;
 }
 
 p, li {
   font-size: 2rem !important;
   color: slategray;
+}
+
+small {
+  font-size: 1.75rem;
+  color: lightslategray;
+  opacity: .75;
 }
 
 .gray {
@@ -67,15 +74,15 @@ input {
 #topper {
   display: none;
   position: fixed;
-  bottom: 35%;
+  bottom: 50%;
   right: 0;
-  z-index: 100;
+  z-index: 1000000 !important;
   border: none;
   outline: none;
   background-color: orangered !important;
   color: white;
   padding: 8px 4px 10px 4px;
-  border-radius: 2px 0 0 2px;
+  border-radius: 4px 0 0 4px;
   font-size: 1.75rem;
   cursor: pointer !important;
 }
@@ -116,7 +123,7 @@ h1 {
 /* Sorting function -----------------------------------------*/
 .placeholder {
   height: 70px;
-  background: lightgray;
+  background: lightslategray;
   opacity: .3;
 }
 
@@ -177,7 +184,7 @@ li {
 
 .ui-widget.ui-widget-content {
   position: relative !important;
-  z-index: 1000000000 !important;
+  z-index: 100000 !important;
 }
 
 /* Save and reset button styles --------------------------------- */
@@ -237,7 +244,7 @@ h3 i {
 
 /* style the tooltip background-color */
 .tooltip .tooltip-inner {
-  background-color: lightslategray;
+  background-color: slategray;
   font-size: 1.8rem;
   margin-top: .5rem;
   padding: .5rem;
@@ -305,22 +312,26 @@ input#todo-addition {
 
 #todo-addition::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: lightgrey;
+  color: lightslategray;
+  opacity: .5;
 }
 
 #todo-addition::-moz-placeholder {
   /* Firefox 19+ */
-  color: lightgrey;
+  color: lightslategray;
+  opacity: .5;
 }
 
 #todo-addition:-ms-input-placeholder {
   /* IE 10+ */
-  color: lightgrey;
+  color: lightslategray;
+  opacity: .5;
 }
 
 #todo-addition:-moz-placeholder {
   /* Firefox 18- */
-  color: lightgrey;
+  color: lightslategray;
+  opacity: .5;
 }
 
 #sizing-addon1 {

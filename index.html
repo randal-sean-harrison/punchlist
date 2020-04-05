@@ -104,12 +104,12 @@
             <footer>
               <hr>
               <div class="col-sm-6 gray">
-                &copy; 2020 Randal Sean Harrison, Ph.D.
+                <small>&copy; <span id="my-year"></span> Randal Sean Harrison, PhD</small>
               </div>
                <div class="col-sm-6">
-                <h3 class="text-right">
-                  <a href="https://github.com/randal-sean-harrison/todo" target="_blank"><i class="fa fa-github fa-spacer-right fa-lg" aria-hidden="true"></i></a>
-                </h3>
+                <p class="text-right">
+                  <a data-toggle="tooltip" data-placement="left" title="Github Repo" href="https://github.com/randal-sean-harrison/todo" target="_blank"><i class="fa fa-github fa-spacer-right fa-lg" aria-hidden="true"></i></a>
+                </p>
               </div>
             </footer>
           </div>
@@ -172,6 +172,9 @@
 
       });
 
+      var d = new Date();
+      var yyyy = d.getFullYear();
+      $("#my-year").html(yyyy);
 
     });
   </script>

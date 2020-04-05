@@ -76,8 +76,8 @@ $("ul").on("click", "span.del", function(event) {
 });
 
 
-// Edit the todo
-$("ul").on("click", "span.edit-this", function(event) {
+// Edit the todo (removed event as it's not passed into function)
+$("ul").on("click", "span.edit-this", function() {
   var currentTodo = $(this).parent().text();
   var getEdit = prompt("Edit this to-do...", currentTodo);
 
@@ -106,8 +106,8 @@ $("ul").on("click", "span.edit-this", function(event) {
 
 });
 
-// Remove all & reset the form
-$("#reset-div").on("click", "#reset-list", function(event) {
+// Remove all & reset the form (removed event as it's not passed into function)
+$("#reset-div").on("click", "#reset-list", function() {
 
   $("#dialog-confirm").dialog("open");
 
@@ -119,8 +119,8 @@ $("#reset-div").on("click", "#reset-list", function(event) {
 
 });
 
-// Email the life list
-$("#reset-div").on("click", "#email-list", function(event) {
+// Email the life list (removed event as it's not passed into function)
+$("#reset-div").on("click", "#email-list", function() {
 
   var emailRecipient = prompt("Enter email address: ");
 

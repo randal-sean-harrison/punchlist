@@ -1,6 +1,6 @@
-Fuhgetabout.IT
+Punchlist
 ----------------------------------------------------------
-   Project: Fuhgetabout.it — To-do app/mobile friendly website
+   Project: Punchlist — To-do app/mobile friendly website
    Web Design and Development
 
 	Release date: Mar 29, 2018
@@ -19,4 +19,4 @@ Fuhgetabout.IT
 
    /* License */
     MIT (Massachusetts Institute of Technology). See: http://opensource.org/licenses/MIT
-    copyright 2018 Randal Sean Harrison, Ph.D.
+    copyright 2018 Randal Sean Harrison, PhD
