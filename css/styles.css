@@ -344,3 +344,17 @@ input#todo-addition {
 #sizing-addon1 i {
   color: slategray !important;
 }
+
+/* Add the up and down arrows */
+#todo-list li:hover:after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f338";
+  font-size: 140%;
+  float: right;
+  opacity: .75;
+  color: lightslategray;
+}
+
+#todo-list li {
+  cursor: pointer;
+}
