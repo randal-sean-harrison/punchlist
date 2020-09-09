@@ -158,7 +158,7 @@ $("#todo-addition").keypress(function(event) {
     localStorage.setItem('work-items', JSON.stringify(todoArray));
 
     $(this).val("");
-    $("ul").prepend("<li><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fa fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + newTodo + "</span>" + "</li>");
+    $("ul").prepend("<li><span class='del'><i class='fad fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fad fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + newTodo + "</span>" + "</li>");
 
     event.preventDefault();
   }
@@ -208,7 +208,7 @@ function main() {
     var arrayLength = todoArray.length;
 
     for (var i = arrayLength - 1; i >= 0; i--) {
-      $('#todo-list').append("<li class='sortable'><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fa fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + todoArray[i] + "</span>" + "</li>");
+      $('#todo-list').append("<li class='sortable'><span class='del'><i class='fad fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fad fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + todoArray[i] + "</span>" + "</li>");
     }
   }
 }

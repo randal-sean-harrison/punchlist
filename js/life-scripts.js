@@ -157,7 +157,7 @@ $("#todo-addition").keypress(function(event) {
     localStorage.setItem('life-items', JSON.stringify(todoArray));
 
     $(this).val("");
-    $("ul").prepend("<li><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fa fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + newTodo + "</span>" + "</li>");
+    $("ul").prepend("<li><span class='del'><i class='fad fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fad fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + newTodo + "</span>" + "</li>");
 
     event.preventDefault();
   }
