@@ -247,8 +247,40 @@ $("a.scroll-link").click(function(event) {
   }, 500, "easeOutQuad");
 });
 
-
 $('[data-toggle="tooltip"]').tooltip();
+
+// Get the date for saving to a filename
+var d = new Date();
+var month = d.getMonth() + 1;
+var day = d.getDate();
+var hours = d.getHours();
+var amPm = "am";
+if (hours >= 12) {
+  hours = hours - 12;
+  amPm = "pm";
+}
+var minutes = d.getMinutes();
+
+// Concatenate date and file name
+var fullDate = d.getFullYear() + '-' +
+  (('' + month).length < 2 ? '0' : '') + month + '-' +
+  (('' + day).length < 2 ? '0' : '') + day + "-" + hours + minutes + amPm;
+var fileToSave = fullDate + "-punchlist-work.txt";
+
+// Save button
+$("#save-button").on("click", function() {
+
+  var listy = $("#todo-list li").map(function() {
+    return $(this).text();
+  }).get().join("\n");
+
+  // $("#randomStudent li").text()
+
+  var blob = new Blob([listy], {
+    type: "text/txt;charset=utf-8"
+  });
+  saveAs(blob, fileToSave);
+});
 
 // Main function
 main();
