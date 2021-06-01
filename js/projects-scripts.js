@@ -20,7 +20,7 @@ $("#dialog-confirm").dialog({
       });
       // Play a sound when deleting
       soundRecycle.play();
-      localStorage.removeItem("life-items");
+      localStorage.removeItem("project-items");
       todoArray = [];
       event.stopPropagation();
       $("#dialog-confirm").dialog("close");
@@ -28,14 +28,11 @@ $("#dialog-confirm").dialog({
   }
 });
 
-
-// Top page navigation
 // Link to elements with data-url attributes -----------------------------------
 $(document).on("click", "[data-url]", function() {
   let url = $(this).data("url");
   window.location.href = url;
 });
-
 
 // // Global variable for the todoArray variable
 var todoArray;
@@ -58,12 +55,13 @@ var soundRecycle = new Howl({
   volume: 0.2
 });
 
-// Toggle the line-through on "done" life-items
+
+// Toggle the line-through on "done" project-items
 // $("ul").on("click", "li", function() {
 //    $(this).toggleClass("line-through");
 // });
 
-// Remove the item on clicking the red x
+// Remove the item on clicking the x
 $("ul").on("click", "span.del", function(event) {
   $(this).parent().slideUp(300, function() {
     var todoItem = $(this).text();
@@ -72,12 +70,13 @@ $("ul").on("click", "span.del", function(event) {
     // Play a sound when deleting
     soundDelete.play();
     // Writes to localstorage
-    localStorage.setItem('life-items', JSON.stringify(todoArray));
+    localStorage.setItem('project-items', JSON.stringify(todoArray));
     // Removes the item from the DOM
     $(this).remove();
   });
   event.stopPropagation();
 });
+
 
 // Edit the todo (removed event as it's not passed into function)
 $("ul").on("click", "span.edit-this", function() {
@@ -100,7 +99,6 @@ $("ul").on("click", "span.edit-this", function() {
   });
 
   todoArray = newTodoArray.reverse();
-
 
   if (window.location.href.indexOf("life") > -1) {
     localStorage.setItem('life-items', JSON.stringify(todoArray));
@@ -132,7 +130,7 @@ $("#reset-div").on("click", "#email-list", function() {
 
   var checkmark = "%E2%9C%94  ";
 
-  emailList = JSON.parse(localStorage.getItem('life-items'));
+  emailList = JSON.parse(localStorage.getItem('project-items'));
 
   // reverse the list
   emailList.reverse();
@@ -144,11 +142,12 @@ $("#reset-div").on("click", "#email-list", function() {
     newString += checkmark + emailList[i] + "%0D%0A";
   }
 
-  var link = 'mailto:' + emailRecipient + '?subject=To-do list (LIFE)' + '&body=' + newString;
+  var link = 'mailto:' + emailRecipient + '?subject=To-do list (WORK)' + '&body=' + newString;
 
   window.location.href = link;
 
 });
+
 
 // Add a todo to the list
 $("#todo-addition").keypress(function(event) {
@@ -160,7 +159,7 @@ $("#todo-addition").keypress(function(event) {
     todoArray.push(newTodo);
     soundAdd.play();
 
-    localStorage.setItem('life-items', JSON.stringify(todoArray));
+    localStorage.setItem('project-items', JSON.stringify(todoArray));
 
     $(this).val("");
     $("ul").prepend("<li><span class='del'><i class='fad fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fad fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + newTodo + "</span>" + "</li>");
@@ -171,7 +170,6 @@ $("#todo-addition").keypress(function(event) {
 
 $("#todo-list").disableSelection();
 $("ul, li").disableSelection();
-
 
 // Toggle sound Icons
 $("#sounds #sound-on").on("click", function() {
@@ -206,87 +204,87 @@ function setVolume(playSounds) {
 
 // Main function
 function main() {
-  if (!localStorage.getItem('life-items')) {
+  if (!localStorage.getItem('project-items')) {
     todoArray = [];
   } else {
-    todoArray = JSON.parse(localStorage.getItem('life-items'));
+    todoArray = JSON.parse(localStorage.getItem('project-items'));
 
     var arrayLength = todoArray.length;
 
     for (var i = arrayLength - 1; i >= 0; i--) {
-      $('#todo-list').append("<li class='sortable'><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fa fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + todoArray[i] + "</span>" + "</li>");
+      $('#todo-list').append("<li class='sortable'><span class='del'><i class='fad fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fad fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + todoArray[i] + "</span>" + "</li>");
     }
   }
 }
 
-// Scroll to top button — When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function() {
-    scrollFunction()
-  };
 
-  function scrollFunction() {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-      document.getElementById("topper").style.display = "block";
-    } else {
-      document.getElementById("topper").style.display = "none";
-    }
+// // Scroll to top button — When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {
+  scrollFunction()
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementById("topper").style.display = "block";
+  } else {
+    document.getElementById("topper").style.display = "none";
   }
+}
 
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 
-  $("#topper").on("click", function() {
-    $("html").animate({
-      scrollTop: 0
-    }, 500, "easeOutQuad");
-  });
+$("#topper").on("click", function() {
+  $("html").animate({
+    scrollTop: 0
+  }, 500, "easeOutQuad");
+});
 
-  // In-page sccroll-to links
-// $("a.scroll-link").click(function(event) {
-//   event.preventDefault();
-//   $("html, body").animate({
-//     scrollTop: $($(this).attr("href")).offset().top - 100
-//   }, 500, "easeOutQuad");
-// });
+// In-page sccroll-to links
+$("a.scroll-link").click(function(event) {
+  event.preventDefault();
+  $("html, body").animate({
+    scrollTop: $($(this).attr("href")).offset().top - 100
+  }, 500, "easeOutQuad");
+});
 
 $('[data-toggle="tooltip"]').tooltip();
 
-
 // Get the date for saving to a filename
-  var d = new Date();
-  var month = d.getMonth() + 1;
-  var day = d.getDate();
-  var hours = d.getHours();
-  var amPm = "am";
-  if (hours >= 12) {
-    hours = hours - 12;
-    amPm = "pm";
-  }
-  var minutes = d.getMinutes();
+var d = new Date();
+var month = d.getMonth() + 1;
+var day = d.getDate();
+var hours = d.getHours();
+var amPm = "am";
+if (hours >= 12) {
+  hours = hours - 12;
+  amPm = "pm";
+}
+var minutes = d.getMinutes();
 
-  // Concatenate date and file name
-  var fullDate = d.getFullYear() + '-' +
-    (('' + month).length < 2 ? '0' : '') + month + '-' +
-    (('' + day).length < 2 ? '0' : '') + day + "-" + hours + minutes + amPm;
-  var fileToSave = fullDate + "-punchlist-life.txt";
+// Concatenate date and file name
+var fullDate = d.getFullYear() + '-' +
+  (('' + month).length < 2 ? '0' : '') + month + '-' +
+  (('' + day).length < 2 ? '0' : '') + day + "-" + hours + minutes + amPm;
+var fileToSave = fullDate + "-punchlist-projects.txt";
 
-  // Save button
-  $("#save-button").on("click", function() {
+// Save button
+$("#save-button").on("click", function() {
 
-    var listy = $("#todo-list li").map(function() {
-      return $(this).text();
-    }).get().join("\n");
+  var listy = $("#todo-list li").map(function() {
+    return $(this).text();
+  }).get().join("\n");
 
-    // $("#randomStudent li").text()
+  // $("#randomStudent li").text()
 
-    var blob = new Blob([listy], {
-      type: "text/txt;charset=utf-8"
-    });
-    saveAs(blob, fileToSave);
+  var blob = new Blob([listy], {
+    type: "text/txt;charset=utf-8"
   });
+  saveAs(blob, fileToSave);
+});
 
 // Main function
 main();

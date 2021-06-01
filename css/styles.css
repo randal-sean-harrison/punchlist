@@ -286,6 +286,10 @@ footer a:hover, footer a:active {
   margin-left: 1.2rem;
 }
 
+.ml-1 {
+  margin-left: 1.5rem !important;
+}
+
 .push-down-2 {
   margin-top: 3rem !important;
 }

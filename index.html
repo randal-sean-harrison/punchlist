@@ -55,27 +55,19 @@
 
         <div id="reset-div">
           <div class="row">
-            <div class="col-xs-6 col-md-4" id="menu-left">
+            <div class="col-xs-12 col-sm-6" id="menu-left">
 
-
-              <div class="btn-group btn-group-justified" role="group" aria-label="work and life buttons">
-
-                <div class="btn-group">
-                  <button id="btn-work" type="button" class="btn btn-lg btn-active"><strong>Work</strong></button>
-                </div>
-                <div class="btn-group" role="group">
-                  <button id="btn-life" type="button" class="btn btn-lg btn-default"><strong>Life</strong></button>
-                </div>
-
+              <div class="btn-group" role="group" aria-label="Main Navigation">
+                <button id="btn-tasks" type="button" class="btn btn-active">Tasks</button>
+                <button data-url="projects.html" id="btn-projects" type="button" class="btn btn-default">Projects</button>
+                <button data-url="life.html" id="btn-life" type="button" class="btn btn-default ml-1">Home Stuff</button>
               </div>
 
 
             </div>
-            <div class="col-xs-6 col-md-8" id="menu-right">
-              <h3 id="reset-heading" class="text-right"><i data-toggle="tooltip" data-placement="top"
-                  title="Save this list" id="save-button" class="fad fa-save"></i>&nbsp;&nbsp;&nbsp; <i data-toggle="tooltip" data-placement="top"
-                  title="Email this list" id="email-list" class="fad fa-paper-plane"></i> &nbsp;&nbsp;&nbsp; <i data-toggle="tooltip" data-placement="top" title="Clear all" class="fad fa-sync-alt" id="reset-list"
-                  aria-hidden="true"></i></h3>
+            <div class="col-xs-12 col-sm-6" id="menu-right">
+              <h3 id="reset-heading" class="text-right"><i data-toggle="tooltip" data-placement="top" title="Save this list" id="save-button" class="fad fa-save"></i>&nbsp;&nbsp;&nbsp; <i data-toggle="tooltip" data-placement="top"
+                  title="Email this list" id="email-list" class="fad fa-paper-plane"></i> &nbsp;&nbsp;&nbsp; <i data-toggle="tooltip" data-placement="top" title="Clear all" class="fad fa-sync-alt" id="reset-list" aria-hidden="true"></i></h3>
             </div>
           </div>
         </div>
@@ -107,7 +99,7 @@
               <div class="col-sm-6 gray">
                 <small>&copy; <span id="my-year"></span> Randal Sean Harrison, PhD</small>
               </div>
-               <div class="col-sm-6">
+              <div class="col-sm-6">
                 <p class="text-right">
                   <a data-toggle="tooltip" data-placement="left" title="Github Repo" href="https://github.com/randal-sean-harrison/punchlist" target="_blank"><i class="fad fa-lg fa-code-branch fa-spacer-right fa-lg" aria-hidden="true"></i></a>
                 </p>
@@ -158,21 +150,21 @@
 
       // Make the list sortable and draggable and write to local storage on update
       $("#todo-list").sortable({
-         axis: 'y',
-         placeholder: "placeholder",
-         update: function() {
+        axis: 'y',
+        placeholder: "placeholder",
+        update: function() {
 
-           var newTodoArray = [];
+          var newTodoArray = [];
 
-           $("#todo-list li").each(function() {
-             newTodoArray.push( $(this).text() );
-           });
+          $("#todo-list li").each(function() {
+            newTodoArray.push($(this).text());
+          });
 
-           todoArray = newTodoArray.reverse();
+          todoArray = newTodoArray.reverse();
 
-           localStorage.setItem('work-items', JSON.stringify(todoArray));
+          localStorage.setItem('work-items', JSON.stringify(todoArray));
 
-         }
+        }
 
       });
 

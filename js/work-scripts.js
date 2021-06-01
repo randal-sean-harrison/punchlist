@@ -1,6 +1,7 @@
 /* ------------------------------------------- */
 /* index.html >> styles.css >> work-scripts.js */
 /* life.html >> styles.css >> life-scripts.js  */
+/* projects.html >> styles.css >> projects-scripts.js  */
 /* ------------------------------------------- */
 
 $("#dialog-confirm").dialog({
@@ -27,9 +28,10 @@ $("#dialog-confirm").dialog({
   }
 });
 
-// Top page navigation
-$("#btn-life").on("click", function() {
-  location.href = "life.html";
+// Link to elements with data-url attributes -----------------------------------
+$(document).on("click", "[data-url]", function() {
+  let url = $(this).data("url");
+  window.location.href = url;
 });
 
 // // Global variable for the todoArray variable
@@ -100,8 +102,10 @@ $("ul").on("click", "span.edit-this", function() {
 
   if (window.location.href.indexOf("life") > -1) {
     localStorage.setItem('life-items', JSON.stringify(todoArray));
-  } else {
+  } else if (window.location.href.indexOf("index") > -1) {
     localStorage.setItem('work-items', JSON.stringify(todoArray));
+  } else {
+    localStorage.setItem('project-items', JSON.stringify(todoArray));
   }
 
 });
@@ -265,7 +269,7 @@ var minutes = d.getMinutes();
 var fullDate = d.getFullYear() + '-' +
   (('' + month).length < 2 ? '0' : '') + month + '-' +
   (('' + day).length < 2 ? '0' : '') + day + "-" + hours + minutes + amPm;
-var fileToSave = fullDate + "-punchlist-work.txt";
+var fileToSave = fullDate + "-punchlist-tasks.txt";
 
 // Save button
 $("#save-button").on("click", function() {
