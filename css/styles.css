@@ -69,6 +69,11 @@ input {
   color: slategray;
 }
 
+.px-wide {
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+
 /* Back-to-top button */
 #topper {
   display: none;
