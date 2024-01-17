@@ -11,11 +11,11 @@ $("#dialog-confirm").dialog({
   width: 400,
   modal: true,
   buttons: {
-    "Cancel": function() {
+    "Cancel": function () {
       $(this).dialog("close");
     },
-    "Clear All To-dos": function() {
-      $("li").slideUp(300, function() {
+    "Clear All To-dos": function () {
+      $("li").slideUp(300, function () {
         $(this).remove();
       });
       // Play a sound when deleting
@@ -29,7 +29,7 @@ $("#dialog-confirm").dialog({
 });
 
 // Link to elements with data-url attributes -----------------------------------
-$(document).on("click", "[data-url]", function() {
+$(document).on("click", "[data-url]", function () {
   let url = $(this).data("url");
   window.location.href = url;
 });
@@ -62,8 +62,8 @@ var soundRecycle = new Howl({
 // });
 
 // Remove the item on clicking the x
-$("ul").on("click", "span.del", function(event) {
-  $(this).parent().slideUp(300, function() {
+$("ul").on("click", "span.del", function (event) {
+  $(this).parent().slideUp(300, function () {
     var todoItem = $(this).text();
     // removes todoItem from todoArray
     todoArray.splice($.inArray(todoItem, todoArray), 1);
@@ -79,7 +79,7 @@ $("ul").on("click", "span.del", function(event) {
 
 
 // Edit the todo (removed event as it's not passed into function)
-$("ul").on("click", "span.edit-this", function() {
+$("ul").on("click", "span.edit-this", function () {
   var currentTodo = $(this).parent().text();
   var getEdit = prompt("Edit this to-do...", currentTodo);
 
@@ -94,7 +94,7 @@ $("ul").on("click", "span.edit-this", function() {
   // write the changes to the localStorage
   var newTodoArray = [];
 
-  $("#todo-list li").each(function() {
+  $("#todo-list li").each(function () {
     newTodoArray.push($(this).text());
   });
 
@@ -111,7 +111,7 @@ $("ul").on("click", "span.edit-this", function() {
 });
 
 // Remove all & reset the form (removed event as it's not passed into function)
-$("#reset-div").on("click", "#reset-list", function() {
+$("#reset-div").on("click", "#reset-list", function () {
 
   $("#dialog-confirm").dialog("open");
 
@@ -124,7 +124,7 @@ $("#reset-div").on("click", "#reset-list", function() {
 });
 
 // Email the life list (removed event as it's not passed into function)
-$("#reset-div").on("click", "#email-list", function() {
+$("#reset-div").on("click", "#email-list", function () {
 
   var emailRecipient = prompt("Enter email address: ");
 
@@ -142,7 +142,7 @@ $("#reset-div").on("click", "#email-list", function() {
     newString += checkmark + emailList[i] + "%0D%0A";
   }
 
-  var link = 'mailto:' + emailRecipient + '?subject=To-do list (WORK)' + '&body=' + newString;
+  var link = 'mailto:' + emailRecipient + '?subject=To-do list (Tasks)' + '&body=' + newString;
 
   window.location.href = link;
 
@@ -150,7 +150,7 @@ $("#reset-div").on("click", "#email-list", function() {
 
 
 // Add a todo to the list
-$("#todo-addition").keypress(function(event) {
+$("#todo-addition").keypress(function (event) {
   if (event.which === 13) {
 
     var newTodo = $(this).val();
@@ -172,13 +172,13 @@ $("#todo-list").disableSelection();
 $("ul, li").disableSelection();
 
 // Toggle sound Icons
-$("#sounds #sound-on").on("click", function() {
+$("#sounds #sound-on").on("click", function () {
   $(this).toggleClass("hidden");
   $("#sounds #sound-off").toggleClass("hidden");
   setVolume(false);
 });
 
-$("#sounds #sound-off").on("click", function() {
+$("#sounds #sound-off").on("click", function () {
   $(this).toggleClass("hidden");
   $("#sounds #sound-on").toggleClass("hidden");
   setVolume(true);
@@ -219,7 +219,7 @@ function main() {
 
 
 // // Scroll to top button — When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {
+window.onscroll = function () {
   scrollFunction()
 };
 
@@ -237,14 +237,14 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-$("#topper").on("click", function() {
+$("#topper").on("click", function () {
   $("html").animate({
     scrollTop: 0
   }, 500, "easeOutQuad");
 });
 
 // In-page sccroll-to links
-$("a.scroll-link").click(function(event) {
+$("a.scroll-link").click(function (event) {
   event.preventDefault();
   $("html, body").animate({
     scrollTop: $($(this).attr("href")).offset().top - 100
@@ -272,9 +272,9 @@ var fullDate = d.getFullYear() + '-' +
 var fileToSave = fullDate + "-punchlist-tasks.txt";
 
 // Save button
-$("#save-button").on("click", function() {
+$("#save-button").on("click", function () {
 
-  var listy = $("#todo-list li").map(function() {
+  var listy = $("#todo-list li").map(function () {
     return $(this).text();
   }).get().join("\n");
 

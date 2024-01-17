@@ -142,7 +142,7 @@ $("#reset-div").on("click", "#email-list", function () {
     newString += checkmark + emailList[i] + "%0D%0A";
   }
 
-  var link = 'mailto:' + emailRecipient + '?subject=To-do list (PROJECTS)' + '&body=' + newString;
+  var link = 'mailto:' + emailRecipient + '?subject=To-do list (Projects)' + '&body=' + newString;
 
   window.location.href = link;
 
