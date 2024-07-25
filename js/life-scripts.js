@@ -11,11 +11,11 @@ $("#dialog-confirm").dialog({
   width: 400,
   modal: true,
   buttons: {
-    "Cancel": function() {
+    "Cancel": function () {
       $(this).dialog("close");
     },
-    "Clear All To-dos": function() {
-      $("li").slideUp(300, function() {
+    "Clear All To-dos": function () {
+      $("li").slideUp(300, function () {
         $(this).remove();
       });
       // Play a sound when deleting
@@ -31,7 +31,7 @@ $("#dialog-confirm").dialog({
 
 // Top page navigation
 // Link to elements with data-url attributes -----------------------------------
-$(document).on("click", "[data-url]", function() {
+$(document).on("click", "[data-url]", function () {
   let url = $(this).data("url");
   window.location.href = url;
 });
@@ -64,8 +64,8 @@ var soundRecycle = new Howl({
 // });
 
 // Remove the item on clicking the red x
-$("ul").on("click", "span.del", function(event) {
-  $(this).parent().slideUp(300, function() {
+$("ul").on("click", "span.del", function (event) {
+  $(this).parent().slideUp(300, function () {
     var todoItem = $(this).text();
     // removes todoItem from todoArray
     todoArray.splice($.inArray(todoItem, todoArray), 1);
@@ -80,7 +80,7 @@ $("ul").on("click", "span.del", function(event) {
 });
 
 // Edit the todo (removed event as it's not passed into function)
-$("ul").on("click", "span.edit-this", function() {
+$("ul").on("click", "span.edit-this", function () {
   var currentTodo = $(this).parent().text();
   var getEdit = prompt("Edit this to-do...", currentTodo);
 
@@ -95,7 +95,7 @@ $("ul").on("click", "span.edit-this", function() {
   // write the changes to the localStorage
   var newTodoArray = [];
 
-  $("#todo-list li").each(function() {
+  $("#todo-list li").each(function () {
     newTodoArray.push($(this).text());
   });
 
@@ -113,7 +113,7 @@ $("ul").on("click", "span.edit-this", function() {
 });
 
 // Remove all & reset the form (removed event as it's not passed into function)
-$("#reset-div").on("click", "#reset-list", function() {
+$("#reset-div").on("click", "#reset-list", function () {
 
   $("#dialog-confirm").dialog("open");
 
@@ -126,7 +126,7 @@ $("#reset-div").on("click", "#reset-list", function() {
 });
 
 // Email the life list (removed event as it's not passed into function)
-$("#reset-div").on("click", "#email-list", function() {
+$("#reset-div").on("click", "#email-list", function () {
 
   var emailRecipient = prompt("Enter email address: ");
 
@@ -151,7 +151,7 @@ $("#reset-div").on("click", "#email-list", function() {
 });
 
 // Add a todo to the list
-$("#todo-addition").keypress(function(event) {
+$("#todo-addition").keypress(function (event) {
   if (event.which === 13) {
 
     var newTodo = $(this).val();
@@ -163,7 +163,7 @@ $("#todo-addition").keypress(function(event) {
     localStorage.setItem('life-items', JSON.stringify(todoArray));
 
     $(this).val("");
-    $("ul").prepend("<li><span class='del'><i class='fad fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fad fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + newTodo + "</span>" + "</li>");
+    $("ul").prepend("<li><span class='del opacity-50'><i class='fa-solid fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fa fa-pencil opacity-50' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + newTodo + "</span>" + "</li>");
 
     event.preventDefault();
   }
@@ -174,13 +174,13 @@ $("ul, li").disableSelection();
 
 
 // Toggle sound Icons
-$("#sounds #sound-on").on("click", function() {
+$("#sounds #sound-on").on("click", function () {
   $(this).toggleClass("hidden");
   $("#sounds #sound-off").toggleClass("hidden");
   setVolume(false);
 });
 
-$("#sounds #sound-off").on("click", function() {
+$("#sounds #sound-off").on("click", function () {
   $(this).toggleClass("hidden");
   $("#sounds #sound-on").toggleClass("hidden");
   setVolume(true);
@@ -214,37 +214,37 @@ function main() {
     var arrayLength = todoArray.length;
 
     for (var i = arrayLength - 1; i >= 0; i--) {
-      $('#todo-list').append("<li class='sortable'><span class='del'><i class='fa fa-times' aria-hidden='true'></i></span><span class='edit-this'><i class='fa fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + todoArray[i] + "</span>" + "</li>");
+      $('#todo-list').append("<li class='sortable'><span class='del opacity-50'><i class='fa-solid fa-times' aria-hidden='true'></i></span><span class='edit-this opacity-50'><i class='fa fa-pencil' aria-hidden='true'></i></span>" + "<span class='todo-text-node'>" + todoArray[i] + "</span>" + "</li>");
     }
   }
 }
 
 // Scroll to top button — When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function() {
-    scrollFunction()
-  };
+window.onscroll = function () {
+  scrollFunction()
+};
 
-  function scrollFunction() {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-      document.getElementById("topper").style.display = "block";
-    } else {
-      document.getElementById("topper").style.display = "none";
-    }
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementById("topper").style.display = "block";
+  } else {
+    document.getElementById("topper").style.display = "none";
   }
+}
 
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 
-  $("#topper").on("click", function() {
-    $("html").animate({
-      scrollTop: 0
-    }, 500, "easeOutQuad");
-  });
+$("#topper").on("click", function () {
+  $("html").animate({
+    scrollTop: 0
+  }, 500, "easeOutQuad");
+});
 
-  // In-page sccroll-to links
+// In-page sccroll-to links
 // $("a.scroll-link").click(function(event) {
 //   event.preventDefault();
 //   $("html, body").animate({
@@ -256,37 +256,37 @@ $('[data-toggle="tooltip"]').tooltip();
 
 
 // Get the date for saving to a filename
-  var d = new Date();
-  var month = d.getMonth() + 1;
-  var day = d.getDate();
-  var hours = d.getHours();
-  var amPm = "am";
-  if (hours >= 12) {
-    hours = hours - 12;
-    amPm = "pm";
-  }
-  var minutes = d.getMinutes();
+var d = new Date();
+var month = d.getMonth() + 1;
+var day = d.getDate();
+var hours = d.getHours();
+var amPm = "am";
+if (hours >= 12) {
+  hours = hours - 12;
+  amPm = "pm";
+}
+var minutes = d.getMinutes();
 
-  // Concatenate date and file name
-  var fullDate = d.getFullYear() + '-' +
-    (('' + month).length < 2 ? '0' : '') + month + '-' +
-    (('' + day).length < 2 ? '0' : '') + day + "-" + hours + minutes + amPm;
-  var fileToSave = fullDate + "-punchlist-life.txt";
+// Concatenate date and file name
+var fullDate = d.getFullYear() + '-' +
+  (('' + month).length < 2 ? '0' : '') + month + '-' +
+  (('' + day).length < 2 ? '0' : '') + day + "-" + hours + minutes + amPm;
+var fileToSave = fullDate + "-punchlist-life.txt";
 
-  // Save button
-  $("#save-button").on("click", function() {
+// Save button
+$("#save-button").on("click", function () {
 
-    var listy = $("#todo-list li").map(function() {
-      return $(this).text();
-    }).get().join("\n");
+  var listy = $("#todo-list li").map(function () {
+    return $(this).text();
+  }).get().join("\n");
 
-    // $("#randomStudent li").text()
+  // $("#randomStudent li").text()
 
-    var blob = new Blob([listy], {
-      type: "text/txt;charset=utf-8"
-    });
-    saveAs(blob, fileToSave);
+  var blob = new Blob([listy], {
+    type: "text/txt;charset=utf-8"
   });
+  saveAs(blob, fileToSave);
+});
 
 // Main function
 main();

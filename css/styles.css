@@ -148,10 +148,14 @@ li {
 .del {
   color: orangered;
   font-size: 3rem;
-  border-right: 1px dotted slategray;
+  border-right: 1px solid lightgray;
   padding-right: 1.3rem !important;
   margin-right: 1.5rem;
   opacity: .7
+}
+
+.opacity-50 {
+  opacity: .5;
 }
 
 .del:hover {
@@ -360,11 +364,11 @@ input#todo-addition {
 
 /* Add the up and down arrows */
 #todo-list li:hover:after {
-  font-family: "Font Awesome 5 Pro";
-  content: "\f338";
+  font-family: "Font Awesome 6 Pro";
+  content: "\e411";
   font-size: 140%;
   float: right;
-  opacity: .75;
+  opacity: .25 !important;
   color: lightslategray;
 }
 
