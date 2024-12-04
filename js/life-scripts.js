@@ -146,7 +146,7 @@ $("#reset-div").on("click", "#email-list", function () {
 
   var link = 'mailto:' + emailRecipient + '?subject=To-do list (LIFE)' + '&body=' + newString;
 
-  window.location.href = link;
+  window.open(link, '_blank');
 
 });
 
@@ -175,14 +175,14 @@ $("ul, li").disableSelection();
 
 // Toggle sound Icons
 $("#sounds #sound-on").on("click", function () {
-  $(this).toggleClass("hidden");
-  $("#sounds #sound-off").toggleClass("hidden");
+  $(this).toggleClass("d-none");
+  $("#sounds #sound-off").toggleClass("d-none");
   setVolume(false);
 });
 
 $("#sounds #sound-off").on("click", function () {
-  $(this).toggleClass("hidden");
-  $("#sounds #sound-on").toggleClass("hidden");
+  $(this).toggleClass("d-none");
+  $("#sounds #sound-on").toggleClass("d-none");
   setVolume(true);
 });
 

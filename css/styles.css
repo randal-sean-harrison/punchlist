@@ -1,6 +1,6 @@
 /* body --------------------------------- */
 body {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   /* font-family: "Montserrat", Arial, sans-serif; */
   /* background: linear-gradient(rgba(169, 169, 169, 0.4), rgba(169, 169, 169, 0.4)) center top / cover, url("../img/bg-pattern3.png"); */
   /* background: linear-gradient(rgba(135, 186, 208, 0.07), rgba(135, 186, 208, 0.07)) center top / cover, url("../img/bg-pattern3.png"); */
@@ -13,7 +13,7 @@ body {
 
 p,
 li {
-  font-size: 2rem !important;
+  /* font-size: 1.3rem !important; */
   color: slategray;
 }
 
@@ -52,7 +52,7 @@ small {
   -moz-box-shadow: 0px 4px 5px lightgray;
   -webkit-box-shadow: 0px 4px 5px lightgray;
   box-shadow: 0px 4px 5px lightgray;
-  z-index: 100000 !important;
+  z-index: 1000000000 !important;
 }
 
 /* Formats the input field */
@@ -62,7 +62,7 @@ input {
 }
 
 .orange {
-  color: orangered;
+  color: orangered !important;
 }
 
 .slategray {
@@ -91,13 +91,17 @@ input {
   cursor: pointer !important;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 #topper:hover {
   background-color: #474e5f;
 }
 
 /* Formats the header area --------------------------------- */
 h1 {
-  font-size: 7rem;
+  font-size: 5rem;
   color: slategray;
   text-align: center;
   margin-bottom: 2rem;
@@ -105,19 +109,19 @@ h1 {
 }
 
 #site-tagline {
-  font-size: 2.5rem;
-  color: slategray;
+  font-size: 1.5rem;
+  color: slategray !important;
   margin-bottom: 3rem;
 }
 
-#sounds h1 {
+#sounds h4 {
   color: orangered;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: right;
   margin-right: 2rem;
 }
 
-#sounds h1:hover {
+#sounds h4:hover {
   color: tomato;
   cursor: pointer;
 }
@@ -147,7 +151,7 @@ li {
 /* Styles the Delete a todo (X) icon  --------------------------------- */
 .del {
   color: orangered;
-  font-size: 3rem;
+  font-size: 2rem;
   border-right: 1px solid lightgray;
   padding-right: 1.3rem !important;
   margin-right: 1.5rem;
@@ -166,7 +170,7 @@ li {
 
 .edit-this {
   color: orangered;
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   /* border-right: 1px dotted gray; */
   padding-right: 1.3rem !important;
   margin-right: 2.5rem;
@@ -190,7 +194,7 @@ li {
 
 .ui-widget.ui-widget-content {
   position: relative !important;
-  z-index: 100000 !important;
+  z-index: 10000 !important;
 }
 
 /* Save and reset button styles --------------------------------- */
@@ -202,11 +206,9 @@ li {
 }
 
 #reset-heading {
-  font-size: 3rem;
   color: orangered;
-  text-align: right;
   cursor: pointer;
-  margin-right: 1rem;
+  margin-bottom: -3rem !important;
 }
 
 #reset-list {
@@ -223,7 +225,7 @@ h3 i {
 }
 
 .btn-group button {
-  font-size: 2.4rem !important;
+  font-size: 2rem !important;
   border-radius: 0;
 }
 
@@ -295,10 +297,6 @@ footer a:active {
   text-decoration: none;
 }
 
-.fa-spacer-right {
-  margin-right: 1.2rem;
-}
-
 .fa-spacer-left {
   margin-left: 1.2rem;
 }
@@ -315,13 +313,24 @@ footer a:active {
   margin-top: 5rem !important;
 }
 
+.slategray {
+  color: slategray !important;
+}
+
 input#todo-addition {
-  padding: 5.5rem 0 5.5rem 1.75rem !important;
-  font-size: 25px !important;
+  padding: 3rem 0 3rem 1.25rem !important;
   background-color: #f6f7fb !important;
   border: none !important;
   box-shadow: none !important;
-  color: gray !important;
+  color: #333333 !important;
+}
+
+.input-group span {
+  background-color: #f6f7fb;
+  border: none;
+  box-shadow: none;
+  color: slategray;
+  ;
 }
 
 .lightgrey {
@@ -374,4 +383,9 @@ input#todo-addition {
 
 #todo-list li {
   cursor: pointer;
+}
+
+hr {
+  color: orangered;
+  border-style: dotted;
 }
