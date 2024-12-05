@@ -39,11 +39,6 @@ small {
   z-index: 1 !important;
 }
 
-/* Not currently using this style */
-/* .line-through {
-  text-decoration: line-through;
-  color: silver;
-} */
 #list-box {
   position: relative;
   background: white;
@@ -52,7 +47,31 @@ small {
   -moz-box-shadow: 0px 4px 5px lightgray;
   -webkit-box-shadow: 0px 4px 5px lightgray;
   box-shadow: 0px 4px 5px lightgray;
-  z-index: 1000000000 !important;
+  z-index: 1000 !important;
+  border-top-right-radius: .375rem;
+  border-bottom-right-radius: .375rem;
+  border-bottom-left-radius: .375rem;
+}
+
+.ui-widget.ui-widget-content {
+  -moz-box-shadow: 0px 4px 5px lightgray;
+  -webkit-box-shadow: 0px 4px 5px lightgray;
+  box-shadow: 0px 4px 5px lightgray;
+  border: none;
+}
+
+.ui-widget-content {
+  border: none;
+}
+
+.ui-dialog-titlebar {
+  border: none;
+  background: transparent;
+  content: 'hello';
+}
+
+[data-bs-tooltip] {
+  z-index: 10000000;
 }
 
 /* Formats the input field */

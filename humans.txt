@@ -1,6 +1,6 @@
 Punchlist
 ----------------------------------------------------------
-   Project: Punchlist — To-do app/mobile friendly website
+   Project: Punchlist — Task app/mobile friendly website
    Web Design and Development
 
 	Release date: Mar 29, 2018

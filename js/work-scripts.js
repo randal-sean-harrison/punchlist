@@ -14,7 +14,7 @@ $("#dialog-confirm").dialog({
     "Cancel": function () {
       $(this).dialog("close");
     },
-    "Clear All To-dos": function () {
+    "Clear All Tasks": function () {
       $("li").slideUp(300, function () {
         $(this).remove();
       });
@@ -56,11 +56,6 @@ var soundRecycle = new Howl({
 });
 
 
-// Toggle the line-through on "done" work-items
-// $("ul").on("click", "li", function() {
-//    $(this).toggleClass("line-through");
-// });
-
 // Remove the item on clicking the x
 $("ul").on("click", "span.del", function (event) {
   $(this).parent().slideUp(300, function () {
@@ -81,7 +76,7 @@ $("ul").on("click", "span.del", function (event) {
 // Edit the todo (removed event as it's not passed into function)
 $("ul").on("click", "span.edit-this", function () {
   var currentTodo = $(this).parent().text();
-  var getEdit = prompt("Edit this to-do...", currentTodo);
+  var getEdit = prompt("Edit this task...", currentTodo);
 
   //break out of the function early if cancel or empty
   if (getEdit === null) {
@@ -118,8 +113,9 @@ $("#reset-div").on("click", "#reset-list", function () {
   // remove the close button on the modal
   $(".ui-dialog-titlebar-close").remove();
   $(".ui-icon-alert").remove();
-  $(".ui-dialog-buttonset button:first-of-type").addClass("btn btn-default");
-  $(".ui-dialog-buttonset button:last-of-type").addClass("btn btn-primary");
+  $(".ui-dialog-title").text("Clear All Tasks");
+  $(".ui-dialog-buttonset button:first-of-type").removeClass("ui-button").addClass("btn btn-light");
+  $(".ui-dialog-buttonset button:last-of-type").removeClass("ui-button").addClass("btn btn-primary");
 
 });
 
@@ -142,7 +138,7 @@ $("#reset-div").on("click", "#email-list", function () {
     newString += checkmark + emailList[i] + "%0D%0A";
   }
 
-  var link = 'mailto:' + emailRecipient + '?subject=To-do list (Tasks)' + '&body=' + newString;
+  var link = 'mailto:' + emailRecipient + '?subject=Task list' + '&body=' + newString;
 
   window.open(link, '_blank');
 
@@ -252,7 +248,9 @@ $("a.scroll-link").click(function (event) {
   }, 500, "easeOutQuad");
 });
 
-$('[data-toggle="tooltip"]').tooltip();
+// Enable tooltips
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 // Get the date for saving to a filename
 var d = new Date();
@@ -286,6 +284,20 @@ $("#save-button").on("click", function () {
   });
   saveAs(blob, fileToSave);
 });
+
+// Show the clear input button on keyup
+// $("#todo-addition").on("keyup input", function () {
+//   if ($(this) !== "") {
+//     $("#clear-the-input").removeClass("d-none");
+//   } else {
+//     $("#clear-the-input").addClass("d-none");
+//   }
+// });
+
+$("#clear-the-input").on("click", function () {
+  $("#todo-addition").val("");
+});
+
 
 // Main function
 main();
