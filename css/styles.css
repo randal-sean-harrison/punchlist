@@ -70,10 +70,6 @@ small {
   content: 'hello';
 }
 
-[data-bs-tooltip] {
-  z-index: 10000000;
-}
-
 /* Formats the input field */
 input {
   font-size: 1.8rem !important;
@@ -277,7 +273,7 @@ h3 i {
 /* style the tooltip background-color */
 .tooltip .tooltip-inner {
   background-color: slategray;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-top: .5rem;
   padding: .5rem;
 }
