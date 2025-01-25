@@ -388,12 +388,12 @@ input#todo-addition {
 
 /* Add the up and down arrows */
 #todo-list li:hover:after {
-  font-family: "Font Awesome 6 Pro";
-  content: "\e411";
+  /* font-family: "Bootstrap Icons" !important; */
+  content: "\22EE";
   font-size: 140%;
   float: right;
-  opacity: .25 !important;
-  color: lightslategray;
+  /* opacity: .25 !important; */
+  color: orangered;
 }
 
 #todo-list li {
